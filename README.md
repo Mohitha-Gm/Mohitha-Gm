@@ -1,9 +1,12 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:8A2BE2,50:BB86FC,100:4B0082&height=200&section=header&text=Mohitha%20Garapati&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=AI%20%26%20ML%20Enthusiast%20%7C%20Full%20Stack%20Developer%20%7C%20CSE(AI)%20Student&descAlignY=58&descSize=18&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:8A2BE2,50:BB86FC,100:4B0082&height=200&section=header&text=Mohitha%20Garapati&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=AI%20%26%20ML%20Enthusiast%20%7C%20Full%20Stack%20Developer%20%7C%20CSE%28AI%29%20Student&descAlignY=58&descSize=18&animation=fadeIn" />
 </p>
 
+<h1 align="center">Hi 👋, I'm Mohitha Garapati</h1>
+<h3 align="center">AI & ML Enthusiast • Full Stack Developer • CSE(AI) Student</h3>
+
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1000&color=BB86FC&center=true&vCenter=true&width=750&lines=🤖+Artificial+Intelligence+Enthusiast;🧠+Deep+Learning+Researcher;🌐+Full+Stack+Developer;📊+Data+Science+Explorer;🔥+Open+Source+Contributor;☕+I+turn+coffee+into+code!" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&pause=1000&color=BB86FC&center=true&vCenter=true&width=750&lines=Artificial+Intelligence+Enthusiast;Deep+Learning+Researcher;Full+Stack+Developer;Data+Science+Explorer;Open+Source+Contributor;I+turn+coffee+into+code!" />
 </p>
 
 <p align="center">
@@ -16,7 +19,10 @@
   <a href="https://github.com/Mohitha-Gm">
     <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
   </a>
-  <img src="https://komarev.com/ghpvc/?username=Mohitha-Gm&label=Profile+Views&color=BB86FC&style=for-the-badge" />
+</p>
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=Mohitha-Gm&label=Profile%20Views&color=BB86FC&style=flat-square&logo=eye&logoColor=white" alt="Profile Views" />
 </p>
 
 ---
