@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:8A2BE2,50:BB86FC,100:4B0082&height=200&section=header&text=Mohitha%20Garapati&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=AI%20%26%20ML%20Enthusiast%20%7C%20Full%20Stack%20Developer%20%7C%20CSE%28AI%29%20Student&descAlignY=58&descSize=18&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:8A2BE2,50:BB86FC,100:4B0082&height=200&section=header&text=Mohitha%20Garapati&fontSize=52&fontColor=ffffff&fontAlignY=38&desc=AI%20and%20ML%20Enthusiast%20%7C%20Full%20Stack%20Developer%20%7C%20CSE%28AI%29%20Student&descAlignY=58&descSize=18&animation=fadeIn" />
 </p>
 
 <h1 align="center">Hi 👋, I'm Mohitha Garapati</h1>
