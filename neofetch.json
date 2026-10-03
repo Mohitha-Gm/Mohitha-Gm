@@ -1,0 +1,37 @@
+{
+  "title": "{{username}}@github",
+  "sections": [
+    {
+      "fields": [
+        { "key": "Role", "value": "AI & ML Enthusiast, Full Stack Developer" },
+        { "key": "Education", "value": "CSE (Artificial Intelligence), B.Tech" },
+        { "key": "College", "value": "Amrita Vishwa Vidyapeetham, Chennai" },
+        { "key": "Languages", "value": "Python, Java, C++, JavaScript, TypeScript" },
+        { "key": "Frontend", "value": "HTML5, CSS3, React, Tailwind CSS, Figma" },
+        { "key": "Backend", "value": "Node.js, Express, MongoDB, MySQL, Firebase" },
+        { "key": "AI/ML", "value": "TensorFlow, PyTorch, Scikit-learn" },
+        { "key": "AI/ML.More", "value": "NumPy, Pandas, OpenCV, Hugging Face" },
+        { "key": "Tools.Dev", "value": "Git, GitHub, VS Code, Linux, Docker" },
+        { "key": "Interests", "value": "NLP, Computer Vision, Generative AI" },
+        { "key": "Interests.More", "value": "Recommendation Systems, LLMs" },
+        { "key": "Projects", "value": "Deepfake Detection (HMM), AI Health Advisory" },
+        { "key": "Projects.More", "value": "Fake Review Detection, BookWormsBurrow" }
+      ]
+    },
+    {
+      "title": "- Contact ------",
+      "fields": [
+        { "key": "Email.Personal", "value": "mohithagarapati@gmail.com" },
+        { "key": "LinkedIn", "value": "linkedin.com/in/mohitha-garapati-154b32323" },
+        { "key": "GitHub", "value": "github.com/Mohitha-Gm" }
+      ]
+    },
+    {
+      "title": "- Status ------",
+      "fields": [
+        { "key": "Focus", "value": "Generative AI & LLMs" },
+        { "key": "Quote", "value": "\"I turn coffee into AI models, one epoch at a time\"" }
+      ]
+    }
+  ]
+}
