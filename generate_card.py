@@ -108,7 +108,15 @@ def format_section_header(title: str) -> tuple[str, str]:
 
 def get_value_color(key: str) -> str:
     """Choose value color: #a5d6ff for links/status highlights, #c9d1d9 for tech specs."""
-    highlight_keys = {"Email.Personal", "LinkedIn", "GitHub", "Focus"}
+    highlight_keys = {
+        "Email.Personal",
+        "Website",
+        "LinkedIn",
+        "X",
+        "X (Twitter)",
+        "X.Account",
+        "Focus",
+    }
     if key in highlight_keys:
         return "#a5d6ff"
     return "#c9d1d9"
@@ -126,57 +134,76 @@ def generate_card():
     ]
     max_key_len = max((len(k) for k in all_keys), default=12)
 
-    # First pass: calculate total height needed for text
-    y_cursor = 42
-    title_text = data.get("title", f"{USERNAME}@github")
-    y_cursor += LINE_HEIGHT  # Underline
-
-    for section in data.get("sections", []):
-        sec_title = section.get("title")
-        if sec_title:
-            y_cursor += LINE_HEIGHT + 6  # Spacing and line for section header
-        for _ in section.get("fields", []):
-            y_cursor += LINE_HEIGHT
-
-    total_content_height = y_cursor + 35
-    card_height = max(MIN_CARD_HEIGHT, total_content_height)
-
-    # Calculate photo vertical offset
-    photo_height = IMG_TARGET_ROWS * GRID_PITCH  # 96 * 5 = 480
+    # Avatar positioning and height calculation
     photo_offset_x = 15
-    photo_offset_y = max(25, (card_height - photo_height) // 2)
+    photo_offset_y = 30
+    avatar_bottom = photo_offset_y + IMG_TARGET_ROWS * GRID_PITCH  # 30 + 96 * 5 = 510
+    card_height = max(MIN_CARD_HEIGHT, avatar_bottom + 30)
+
+    # Dynamic text height calculation to align text block with avatar
+    sections = data.get("sections", [])
+    total_rows = 2  # Title (1) + Dashed Underline (1)
+    for section in sections:
+        if section.get("title"):
+            total_rows += 1
+        total_rows += len(section.get("fields", []))
+
+    y_start = 50.0
+    target_last_y = avatar_bottom - 20.0  # Landing near ~490
+    total_span = target_last_y - y_start  # 440px available span
+
+    base_line_height = 20.0
+    num_gaps = max(1, len(sections) - 1)
+
+    # Space taken by rows alone with base line height
+    rows_span = (total_rows - 1) * base_line_height
+    leftover = max(0.0, total_span - rows_span)
+
+    # Distribute leftover evenly as extra gap between sections (capped at 30px)
+    extra_gap = leftover / num_gaps
+    line_height = base_line_height
+
+    if extra_gap > 30.0:
+        extra_gap = 30.0
+        remaining_leftover = leftover - (extra_gap * num_gaps)
+        nudge = min(2.0, remaining_leftover / max(1, total_rows - 1))
+        line_height = base_line_height + nudge
 
     # Generate dot art circles from photo
     circle_elements = generate_dot_art(IMG_PATH, photo_offset_x, photo_offset_y)
 
-    # Second pass: generate text SVG elements
+    # Generate text SVG elements
     text_elements = []
-    y = 42
+    y = y_start
 
     # Title
+    title_text = data.get("title", f"{USERNAME}@github")
     esc_title = html.escape(title_text)
     text_elements.append(
-        f'  <text x="{TEXT_START_X}" y="{y}" '
+        f'  <text x="{TEXT_START_X}" y="{y:.1f}" '
         f'font-family="\'Consolas\', \'Courier New\', monospace" '
         f'font-size="14px" font-weight="bold" fill="#a5d6ff">{esc_title}</text>'
     )
-    y += LINE_HEIGHT
+    y += line_height
 
     # Grey dashed line under title matching title length
     dash_line = "-" * max(len(title_text), 17)
     text_elements.append(
-        f'  <text x="{TEXT_START_X}" y="{y}" '
+        f'  <text x="{TEXT_START_X}" y="{y:.1f}" '
         f'font-family="\'Consolas\', \'Courier New\', monospace" '
         f'font-size="13px" fill="#616e7f">{dash_line}</text>'
     )
 
-    for section in data.get("sections", []):
+    for idx, section in enumerate(sections):
+        if idx > 0:
+            y += extra_gap
+
         sec_title = section.get("title")
         if sec_title:
-            y += LINE_HEIGHT + 6
+            y += line_height
             label, dashes = format_section_header(sec_title)
             text_elements.append(
-                f'  <text x="{TEXT_START_X}" y="{y}" '
+                f'  <text x="{TEXT_START_X}" y="{y:.1f}" '
                 f'font-family="\'Consolas\', \'Courier New\', monospace" '
                 f'font-size="13px" xml:space="preserve">'
                 f'<tspan fill="#616e7f">- </tspan>'
@@ -186,7 +213,7 @@ def generate_card():
             )
 
         for field in section.get("fields", []):
-            y += LINE_HEIGHT
+            y += line_height
             key = field["key"]
             val = str(field["value"])
 
@@ -198,7 +225,7 @@ def generate_card():
             esc_val = html.escape(val)
 
             text_elements.append(
-                f'  <text x="{TEXT_START_X}" y="{y}" '
+                f'  <text x="{TEXT_START_X}" y="{y:.1f}" '
                 f'font-family="\'Consolas\', \'Courier New\', monospace" '
                 f'font-size="13px" xml:space="preserve">'
                 f'<tspan fill="#ffa657">{esc_key}</tspan>'
